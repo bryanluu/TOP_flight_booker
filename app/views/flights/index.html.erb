@@ -1,0 +1,23 @@
+<h1>Flights#index</h1>
+
+<%= form_with url: "/flights", method: :get do |form| %>
+
+<h3>From</h3>
+<%= form.select(:from, @cities) %>
+
+<h3>To</h3>
+<%= form.select(:to, @cities) %>
+
+<h3>Passengers</h3>
+<%= form.select(:passengers, (1..4) )%>
+
+<h3>Date</h3>
+
+<br>
+<br>
+<br>
+
+<%= form.submit 'Search' %>
+
+<% end %>
+
