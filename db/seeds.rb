@@ -14,7 +14,7 @@ Airport.create({ airport_code: 'YYZ' })
 
 airports = Airport.all
 
-10.times do
+100.times do
   from = airports.sample
   to = from
   until to.airport_code != from.airport_code
