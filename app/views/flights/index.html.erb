@@ -27,11 +27,13 @@
   <h2>Search results</h2>
 
   <% if @flights.length > 0 %>
-    <ul>
-      <% for flight in @flights %>
-        <li><%= flight.from_airport.airport_code %> to <%= flight.to_airport.airport_code %> @ <%= flight.start %> (<%= flight.duration %> minutes)</li>
+    <%= form_with url: "/bookings/new", method: :get do |form| %>
+      <%= form.collection_radio_buttons(:flight, @flights, :to_s, :to_s, html_options: { class: 'form-control' }) do |b| %>
+        <%= b.label { b.radio_button + " " + b.text } %><br>
       <% end %>
-    </ul>
+      <br>
+      <%= form.submit 'Book flight' %>
+    <% end %>
   <% else %>
     <p>No flights found matching the criteria...</p>
   <% end %>
