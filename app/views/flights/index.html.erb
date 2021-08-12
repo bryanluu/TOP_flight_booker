@@ -12,6 +12,7 @@
 <%= form.select(:passengers, (1..4) )%>
 
 <h3>Date</h3>
+<%= select_tag(:date, options_for_select(@dates)) %>
 
 <br>
 <br>
