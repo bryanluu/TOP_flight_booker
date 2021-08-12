@@ -1,0 +1,17 @@
+<h1>Bookings#new</h1>
+
+<h2>Flight Info</h2>
+<p><%= Flight.find(params['flight_id']) %></p>
+
+<h2>Passenger Info</h2>
+<%= form_with url: '/bookings/', method: :post do |form| %>
+  <%= form.fields_for @passenger do |f| %>
+    <p>Name: </p>
+    <%= f.text_field :name %>
+    <br>
+    <p>Email: </p>
+    <%= f.text_field :email %>
+    <br><br>
+  <% end %>
+  <%= form.submit %>
+<% end %>

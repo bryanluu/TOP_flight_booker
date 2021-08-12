@@ -5,6 +5,6 @@ class Flight < ApplicationRecord
   has_many :passengers, through: :bookings
 
   def to_s
-    "#{from_airport.airport_code} to #{to_airport.airport_code} @ #{start} (#{duration} minutes)"
+    "Flight \##{id} #{from_airport.airport_code} to #{to_airport.airport_code} @ #{start} (#{duration} minutes)"
   end
 end

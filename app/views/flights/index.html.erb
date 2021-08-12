@@ -28,7 +28,7 @@
 
   <% if @flights.length > 0 %>
     <%= form_with url: "/bookings/new", method: :get do |form| %>
-      <%= form.collection_radio_buttons(:flight, @flights, :to_s, :to_s, html_options: { class: 'form-control' }) do |b| %>
+      <%= form.collection_radio_buttons(:flight_id, @flights, :id, :to_s, html_options: { class: 'form-control' }) do |b| %>
         <%= b.label { b.radio_button + " " + b.text } %><br>
       <% end %>
       <br>
