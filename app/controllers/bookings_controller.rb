@@ -8,12 +8,25 @@ class BookingsController < ApplicationController
   end
 
   def create
-    puts params
+    flight = Flight.find(params['flight_id'])
+    if flight.nil?
+      redirect_to :new
+      return
+    end
+
+    passenger = Passenger.create(passenger_params)
+    @booking = Booking.create(flight: flight, passenger: passenger)
+
+    redirect_to @booking
+  end
+
+  def show
+    @booking = Booking.find(params['id'])
   end
 
   private
 
-  def booking_params
+  def passenger_params
     params.require(:passenger).permit(:name, :email)
   end
 end
